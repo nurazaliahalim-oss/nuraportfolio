@@ -4,220 +4,172 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <title>Nura Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
 }
 
 body{
-    font-family:'Inter',sans-serif;
-    background:#F8F5EE;
-    color:#2B2B2B;
+background:#f8f5ee;
+color:#2b2b2b;
 }
 
 .container{
-    max-width:1300px;
-    margin:auto;
-    padding:0 50px;
+max-width:1300px;
+margin:auto;
+padding:0 50px;
 }
 
 /* NAVBAR */
 
-nav{
-    height:100px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:30px 0;
 }
 
 .logo{
-    font-size:22px;
-    font-weight:700;
-    color:#8F7557;
+font-size:24px;
+font-weight:700;
 }
 
 .menu{
-    display:flex;
-    gap:35px;
-    align-items:center;
+display:flex;
+gap:35px;
+align-items:center;
 }
 
 .menu a{
-    text-decoration:none;
-    color:#555;
-    font-weight:500;
+text-decoration:none;
+color:#7b6549;
+font-size:15px;
 }
 
 .btn{
-    padding:14px 28px;
-    border:1px solid #C8B6A6;
-    border-radius:50px;
-    color:#8F7557 !important;
+padding:12px 24px;
+border:1px solid #d8c3a5;
+border-radius:50px;
+}
+
+.hamburger{
+display:none;
+font-size:30px;
+cursor:pointer;
 }
 
 /* HERO */
 
 .hero{
-    min-height:calc(100vh - 100px);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+min-height:80vh;
+gap:80px;
 }
 
 .left{
-    flex:1;
-}
-
-.right{
-    flex:1;
-    display:flex;
-    justify-content:center;
-}
-
-.right img{
-    width:450px;
-    max-width:100%;
+flex:1;
 }
 
 .badge{
-    display:inline-block;
-    padding:12px 28px;
-    border:1px solid #D6C6B8;
-    border-radius:50px;
-    margin-bottom:25px;
-    color:#8F7557;
+display:inline-block;
+padding:10px 30px;
+border:1px solid #d8c3a5;
+border-radius:50px;
+font-size:32px;
+font-style:italic;
+color:#b08b63;
+margin-bottom:30px;
 }
 
-.hero h1{
-    font-size:72px;
-    font-weight:700;
-    line-height:1.1;
-    margin-bottom:25px;
+h1{
+font-size:65px;
+line-height:1.2;
+font-weight:500;
+font-family:Georgia,serif;
+color:#b08b63;
+margin-bottom:25px;
 }
 
-.hero p{
-    font-size:18px;
-    line-height:1.8;
-    color:#666;
-    max-width:600px;
-    margin-bottom:35px;
+.desc{
+font-size:18px;
+line-height:1.8;
+max-width:600px;
 }
 
-.hero-buttons{
-    display:flex;
-    gap:15px;
+.right{
+flex:1;
+display:flex;
+justify-content:center;
 }
 
-.primary{
-    background:#8F7557;
-    color:white;
-    padding:16px 30px;
-    border-radius:50px;
-    text-decoration:none;
+.profile-box{
+position:relative;
+width:420px;
 }
 
-.secondary{
-    border:1px solid #D6C6B8;
-    color:#8F7557;
-    padding:16px 30px;
-    border-radius:50px;
-    text-decoration:none;
+.profile-box img{
+width:100%;
+display:block;
 }
 
-/* ABOUT */
+/* MOBILE */
 
-.about{
-    padding:120px 0;
+@media(max-width:768px){
+
+.container{
+padding:0 20px;
 }
 
-.about h2{
-    font-size:42px;
-    margin-bottom:20px;
-}
-
-.about p{
-    max-width:700px;
-    line-height:1.9;
-    color:#666;
-}
-
-/* SERVICES */
-
-.services{
-    padding:120px 0;
-}
-
-.services h2{
-    text-align:center;
-    margin-bottom:50px;
-    font-size:42px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.card{
-    background:white;
-    padding:35px;
-    border-radius:20px;
-}
-
-.card h3{
-    margin-bottom:15px;
-}
-
-/* FOOTER */
-
-footer{
-    padding:50px 0;
-    text-align:center;
-    color:#888;
-}
-
-@media(max-width:991px){
-
-.hero{
-    flex-direction:column;
-    text-align:center;
-    padding:50px 0;
-}
-
-.hero h1{
-    font-size:48px;
-}
-
-.cards{
-    grid-template-columns:1fr;
-}
-
-nav{
-    flex-direction:column;
-    height:auto;
-    padding:30px 0;
-    gap:20px;
+.hamburger{
+display:block;
 }
 
 .menu{
-    flex-wrap:wrap;
-    justify-content:center;
+display:none;
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+background:#f8f5ee;
+flex-direction:column;
+padding:25px;
+}
+
+.menu.active{
+display:flex;
+}
+
+.hero{
+flex-direction:column-reverse;
+text-align:center;
+padding-top:30px;
+gap:30px;
+}
+
+.badge{
+font-size:24px;
+}
+
+h1{
+font-size:42px;
+}
+
+.desc{
+font-size:16px;
+}
+
+.profile-box{
+width:280px;
 }
 }
 
@@ -228,19 +180,22 @@ nav{
 
 <div class="container">
 
-<nav>
+<nav class="navbar">
 
 <div class="logo">
 Nura Portfolio
 </div>
 
-<div class="menu">
+<div class="menu" id="menu">
 <a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Services</a>
-<a href="#">Portfolio</a>
-<a href="#">Contact</a>
+<a href="#">About Me</a>
+<a href="#">Project</a>
+<a href="#">Service</a>
 <a href="#" class="btn">Let's Talk</a>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">
+☰
 </div>
 
 </nav>
@@ -254,72 +209,36 @@ Hi there!
 </div>
 
 <h1>
-Graphic Designer<br>
-& Web Designer
+Hey! I'm Nurazali A Halim<br>
+I'm Junior Graphic Designer
 </h1>
 
-<p>
-Creating meaningful visual experiences through creative design,
-branding, website design, and modern digital solutions.
-Passionate about transforming ideas into beautiful and functional designs.
+<p class="desc">
+Creative Web & Graphic Designer with experience in website design,
+content updates, and client support. Skilled in WordPress, Elementor,
+Adobe Illustrator, and Adobe Photoshop. Passionate about creating
+clean, professional, and user-friendly designs.
 </p>
-
-<div class="hero-buttons">
-<a href="#" class="primary">View Portfolio</a>
-<a href="#" class="secondary">Contact Me</a>
-</div>
 
 </div>
 
 <div class="right">
+
+<div class="profile-box">
 <img src="profile.png" alt="Profile">
 </div>
 
-</section>
-
-<section class="about">
-
-<h2>About Me</h2>
-
-<p>
-Hi, I'm Nurazalia A. Halim. I specialize in graphic design,
-branding, website design, Adobe Illustrator, WordPress and Elementor.
-I enjoy creating clean, modern and user-friendly experiences that help
-businesses communicate their message effectively.
-</p>
-
-</section>
-
-<section class="services">
-
-<h2>My Services</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Graphic Design</h3>
-<p>Branding, marketing materials and creative visual communication.</p>
-</div>
-
-<div class="card">
-<h3>Website Design</h3>
-<p>Responsive websites built with HTML, CSS, WordPress and Elementor.</p>
-</div>
-
-<div class="card">
-<h3>UI Design</h3>
-<p>Modern user interfaces focused on usability and aesthetics.</p>
-</div>
-
 </div>
 
 </section>
 
-<footer>
-© 2026 nuraportfolio. All Rights Reserved.
-</footer>
-
 </div>
+
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
