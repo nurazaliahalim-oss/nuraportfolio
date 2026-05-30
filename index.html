@@ -13,7 +13,7 @@ box-sizing:border-box;
 font-family:'Inter',sans-serif;
 }
 body{
-background:#f8f5ee;
+background:#f7f3ed;
 overflow-x:hidden;
 }
 .container{
@@ -26,113 +26,119 @@ padding:0 50px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:40px 0;
+padding:35px 0;
 }
 .logo{
-font-size:28px;
+font-size:30px;
 font-weight:700;
 color:#222;
 }
-.menu{
+.nav-links{
 display:flex;
 align-items:center;
 gap:35px;
 }
-.menu a{
+.nav-links a{
 text-decoration:none;
-color:#9f8264;
+color:#9d8267;
 font-size:15px;
 }
-.btn{
-padding:10px 24px;
-border:1px solid #d8c3a5;
-border-radius:50px;
+.talk-btn{
+padding:10px 22px;
+border:1px solid #d8c5ab;
+border-radius:30px;
+}
+.menu-btn{
+display:none;
+font-size:30px;
+cursor:pointer;
 }
 /* HERO */
 .hero{
 display:flex;
 justify-content:space-between;
 align-items:center;
-min-height:75vh;
-gap:80px;
+min-height:80vh;
+gap:50px;
 }
 .left{
 flex:1;
 }
 .badge{
 display:inline-block;
-padding:12px 28px;
-border:1px solid #d8c3a5;
+padding:12px 30px;
+border:1px solid #d8c5ab;
 border-radius:50px;
-font-size:22px;
+font-size:24px;
 font-style:italic;
-color:#b08b63;
+color:#b28a63;
 margin-bottom:35px;
 }
-h1{
-font-size:60px;
+.hero h1{
+font-size:68px;
 font-weight:300;
 font-style:italic;
-line-height:1.15;
-color:#b08b63;
-max-width:700px;
-margin-bottom:30px;
+line-height:1.1;
+color:#b28a63;
+max-width:650px;
+margin-bottom:25px;
 }
 .desc{
 font-size:18px;
 line-height:1.8;
-max-width:650px;
+max-width:600px;
 color:#333;
 }
+/* RIGHT IMAGE */
 .right{
 flex:1;
 display:flex;
 justify-content:center;
 }
-.photo-wrap{
+.image-wrap{
 position:relative;
 width:450px;
 height:500px;
 }
 .arch{
 position:absolute;
+width:280px;
+height:340px;
+background:#efc0df;
+border-radius:180px 180px 0 0;
 top:40px;
 left:50%;
 transform:translateX(-50%);
-width:280px;
-height:340px;
-background:#efc2df;
-border-radius:180px 180px 0 0;
 }
 .profile{
 position:absolute;
+width:300px;
 bottom:0;
 left:50%;
 transform:translateX(-50%);
-width:310px;
 z-index:2;
 }
 .star{
 position:absolute;
+font-size:60px;
 z-index:3;
-font-size:70px;
 }
 .star1{
-left:10px;
-bottom:100px;
-color:#f7b45f;
+left:20px;
+bottom:90px;
+color:#f5b458;
 }
 .star2{
-right:10px;
+right:15px;
 top:120px;
-font-size:45px;
-color:#c4e58a;
+color:#cbe78b;
+font-size:40px;
 }
 .star3{
 left:40px;
-top:220px;
-font-size:40px;
-color:#d9df6b;
+top:200px;
+color:#d6df74;
+font-size:35px;
 }
 /* MOBILE */
 @media(max-width:768px){
@@ -140,34 +146,51 @@ color:#d9df6b;
 padding:0 20px;
 }
 .navbar{
+padding:25px 0;
+}
+.menu-btn{
+display:block;
+}
+.nav-links{
+display:none;
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+background:#f7f3ed;
 flex-direction:column;
+padding:25px;
 gap:20px;
 }
-.menu{
-flex-wrap:wrap;
-justify-content:center;
-gap:15px;
+.nav-links.active{
+display:flex;
 }
 .hero{
 flex-direction:column-reverse;
 text-align:center;
 padding-top:20px;
-gap:40px;
+gap:30px;
+min-height:auto;
 }
-h1{
-font-size:42px;
+.left,
+.right{
+width:100%;
+}
+.hero h1{
+font-size:46px;
+max-width:100%;
 }
 .desc{
 font-size:16px;
 margin:auto;
 }
-.photo-wrap{
+.image-wrap{
 width:300px;
 height:350px;
 }
 .arch{
-width:200px;
-height:250px;
+width:190px;
+height:240px;
 }
 .profile{
 width:220px;
@@ -176,10 +199,13 @@ width:220px;
 font-size:35px;
 }
 .star2{
-font-size:30px;
+font-size:28px;
 }
 .star3{
-font-size:28px;
+font-size:24px;
+}
+.logo{
+font-size:24px;
 }
 }
 </style>
@@ -190,12 +216,15 @@ font-size:28px;
 <div class="logo">
 Nura Portfolio
 </div>
-<div class="menu">
+<div class="nav-links" id="navMenu">
 <a href="#">Home</a>
 <a href="#">About Me</a>
 <a href="#">Project</a>
 <a href="#">Service</a>
-<a href="#" class="btn">Let's Talk</a>
+<a href="#" class="talk-btn">Let's Talk</a>
+</div>
+<div class="menu-btn" onclick="toggleMenu()">
+☰
 </div>
 </nav>
 <section class="hero">
@@ -210,14 +239,14 @@ I'm Junior Graphic Designer
 <p class="desc">
 Creative Web & Graphic Designer with experience in website design,
 content updates, and client support. Skilled in WordPress, Elementor,
-Adobe Illustrator, and Adobe Photoshop. Passionate about creating
-clean, professional, and user-friendly designs.
+Adobe Illustrator and Adobe Photoshop. Passionate about creating clean,
+professional and user-friendly designs.
 </p>
 </div>
 <div class="right">
-<div class="photo-wrap">
+<div class="image-wrap">
 <div class="arch"></div>
-<img src="profile.png" class="profile" alt="Profile">
+<img src="profile.png" alt="Profile" class="profile">
 <div class="star star1">✦</div>
 <div class="star star2">✦</div>
 <div class="star star3">✦</div>
@@ -225,5 +254,10 @@ clean, professional, and user-friendly designs.
 </div>
 </section>
 </div>
+<script>
+function toggleMenu(){
+document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
 </body>
 </html>
